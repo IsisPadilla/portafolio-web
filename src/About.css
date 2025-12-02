@@ -1,0 +1,101 @@
+/*--- src/About.css ---*/
+
+.about-page {
+  background-color: #000;
+  min-height: 100vh;
+  padding: 100px 0; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- PESTAÑA --- */
+.about-folder-header {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  margin-bottom: 60px;
+}
+.folder-tab { position: relative; width: 500px; height: 120px; flex-shrink: 0; }
+.folder-svg { width: 100%; height: 100%; overflow: visible; }
+.folder-svg path { stroke: white; stroke-width: 2px; fill: none; }
+.folder-text {
+  position: absolute; top: 40px; left: 0; width: 100%; text-align: center;
+  color: white; font-family: 'Thabit', 'Courier New', monospace; font-size: 40px; pointer-events: none;
+}
+.folder-line { flex-grow: 1; height: 2px; background-color: white; }
+
+
+/* --- CONTENEDOR CONTENIDO --- */
+.about-content-wrapper {
+  display: flex;
+  padding: 0 50px;
+  gap: 60px;       /* Espacio entre foto y texto */
+  align-items: center;
+}
+
+/* --- IMAGEN --- */
+.about-image {
+  flex: 1;
+  width: 20%;
+  
+  /* PROPORCIÓN FOTO*/
+  aspect-ratio: 1467 / 1616;
+  height: auto;  
+  
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  
+  /* EFECTO B/N */
+  filter: grayscale(100%);
+  transition: all 0.5s ease;
+}
+
+.about-image:hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+/* --- TEXTO --- */
+.about-text-container {
+  flex: 1; 
+  color: white;
+  font-family: 'Thabit', 'Courier New', monospace;
+}
+
+.about-paragraph {
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  white-space: pre-wrap;
+  text-align: left; /* Alineado a la izquierda */
+}
+
+/* ------------------------------------- */
+
+/* --- VERSIÓN CELULAR --- */
+@media (max-width: 768px) {
+  .about-page {
+    padding-top: 50px;
+  }
+
+  /* Pestaña pequeña */
+  .folder-tab { width: 280px; height: 70px; }
+  .folder-text { font-size: 24px; top: 25px; }
+
+  /* Apilar contenido */
+  .about-content-wrapper {
+    flex-direction: column; /* Foto arriba, texto abajo */
+    padding: 0 20px;
+    gap: 30px;
+  }
+
+  .about-text-container {
+    margin-top: 0;
+  }
+
+  .about-paragraph {
+    font-size: 18px;
+  }
+}

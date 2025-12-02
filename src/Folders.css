@@ -1,0 +1,282 @@
+/* src/Folders.css */
+
+.folders-container {
+  background-color: #000;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  min-height: 100vh;
+}
+
+/* --- ESTILOS DE LA PESTAÑA --- */
+.folder-row {
+  display: flex; align-items: flex-end; width: 100%; cursor: pointer; transition: transform 0.3s ease;
+}
+.folder-row:hover { transform: translateY(-10px); }
+.folder-tab { position: relative; width: 500px; height: 120px; flex-shrink: 0; }
+.folder-svg { width: 100%; height: 100%; overflow: visible; }
+.folder-svg path { stroke: white; stroke-width: 2px; fill: none; transition: stroke 0.3s; }
+.folder-text {
+  position: absolute; top: 40px; left: 0; width: 100%; text-align: center;
+  color: white; font-family: 'Thabit', 'Courier New', monospace; font-size: 40px; pointer-events: none;
+}
+.folder-line { flex-grow: 1; height: 2px; background-color: white; margin-bottom: 0px; }
+
+/* Hover effects */
+.folder-row:hover .folder-svg path { stroke: #cccccc; stroke-width: 3px; }
+.folder-row:hover .folder-line { background-color: #cccccc; height: 3px; }
+.folder-row:hover .folder-text { color: #cccccc; }
+
+
+/* --- CONTENEDOR DE PROYECTOS --- */
+.folder-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease;
+}
+
+.project-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.horizontal-dashed-line {
+  width: 100%;
+  height: 0;
+  border-top: 5px dashed white;
+  margin: 40px 0;
+}
+
+.project-body {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+/* --- ZONA IZQUIERDA: CONTENEDORES DE IMÁGENES --- */
+.content-left {
+  width: 45%;
+}
+
+/* Grid automático */
+.images-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-auto-rows: 200px; 
+  gap: 20px;
+}
+
+/* Pila vertical */
+.images-stack-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+} 
+
+/* --- ESTILOS DE IMÁGENES (TIPOS) --- */
+
+.media-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Landscape Full (ancho total, proporción fija) */
+.media-item-landscape {
+  width: 100%; 
+  aspect-ratio: 1152 / 645; 
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Large (Rectangular para Animación) */
+.media-item-large {
+  width: 100%;
+  height: 350px; 
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Square (Cuadrado para Retoque) */
+.media-item-square {
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Rectangular (Para Programación) */
+.media-item-rect {
+  width: 100%;
+  aspect-ratio: 1278 / 783; 
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* --- EFECTO BLANCO Y NEGRO INTERACTIVO --- */
+/* Aplica a todas las imágenes */
+.media-item, 
+.media-item-large, 
+.media-item-square, 
+.media-item-landscape, 
+.media-item-rect {
+  filter: grayscale(100%); 
+  opacity: 0.8; 
+  transition: filter 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Al pasar el mouse: Color */
+.media-item:hover, 
+.media-item-large:hover, 
+.media-item-square:hover, 
+.media-item-landscape:hover, 
+.media-item-rect:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.03); 
+  z-index: 10;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+
+/* --- ZONA DERECHA: TEXTO --- */
+.content-separator {
+  width: 0;
+  border-left: 5px dashed white;
+  margin: 0 40px;
+}
+
+.content-right {
+  width: 45%;
+  color: white;
+  font-family: 'Thabit', 'Courier New', monospace;
+  text-align: left; 
+}
+
+.content-title {
+  font-size: 40px; 
+  font-weight: bold; 
+  margin-top: 0; 
+  margin-bottom: 30px; 
+  line-height: 1.2;
+}
+
+.content-desc {
+  font-size: 24px;
+  font-weight: normal; 
+  line-height: 1.5;
+  white-space: pre-wrap; 
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- LAYOUT ESPECIAL: TEXTO ABAJO --- */
+.project-body-full {
+  display: flex;
+  flex-direction: column; 
+  padding: 0 40px;
+  gap: 40px; 
+}
+
+.full-text-container {
+  width: 100%;
+  color: white;
+  font-family: 'Thabit', 'Courier New', monospace;
+  text-align: left; /* Alineado a la izquierda */
+}
+
+.full-text-container .content-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.full-text-container .content-desc {
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* --- LAYOUT WIP --- */
+.wip-container {
+  width: 100%;
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.wip-text {
+  font-family: 'Thabit', 'Courier New', monospace;
+  font-size: 60px;
+  color: white;
+  white-space: pre-wrap;
+}
+
+/*-------------------------------------*/
+
+/* --- VERSIÓN CELULAR --- */
+
+@media (max-width: 768px) {
+  
+  /* 1. Ajustar la pestaña de la carpeta */
+  .folder-tab {
+    width: 280px; /* Mucho más angosta */
+    height: 70px; /* Más bajita */
+  }
+  .folder-text {
+    font-size: 24px; /* Letra del título más chica */
+    top: 25px; /* Ajuste vertical */
+  }
+
+  /* 2. Apilar contenido (Foto arriba, texto abajo) */
+  .project-body, 
+  .project-body-full {
+    flex-direction: column; /* Columna vertical */
+    padding: 0 20px; /* Márgenes laterales más pequeños */
+    gap: 30px;
+  }
+
+  /* 3. Que ocupen todo el ancho */
+  .content-left, 
+  .content-right,
+  .full-text-container {
+    width: 100%;
+  }
+
+  /* 4. Imágenes en 1 sola columna */
+  .images-grid {
+    grid-template-columns: 1fr; /* 1 sola columna */
+  }
+
+  /* 5. Ocultar la línea vertical separadora (ya no sirve si están apilados) */
+  .content-separator {
+    display: none;
+  }
+
+  /* 6. Ajustar textos */
+  .content-title, .full-text-container .content-title {
+    font-size: 28px;
+    margin-top: 20px;
+  }
+  .content-desc, .full-text-container .content-desc {
+    font-size: 18px;
+  }
+  
+  /* 7. Texto gigante de WIP (Editorial) */
+  .wip-text {
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,92 @@
+/* src/Contact.css */
+
+.contact-page {
+  background-color: #000;
+  min-height: 100vh;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pestaña (Reutilizamos estilos) */
+.contact-folder-header {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  margin-bottom: 60px;
+}
+.folder-tab { position: relative; width: 500px; height: 120px; flex-shrink: 0; }
+.folder-svg { width: 100%; height: 100%; overflow: visible; }
+.folder-svg path { stroke: white; stroke-width: 2px; fill: none; }
+.folder-text {
+  position: absolute; top: 40px; left: 0; width: 100%; text-align: center;
+  color: white; font-family: 'Thabit', 'Courier New', monospace; font-size: 40px; pointer-events: none;
+}
+.folder-line { flex-grow: 1; height: 2px; background-color: white; }
+
+/* LISTA */
+.contact-info-container {
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px; 
+}
+
+.contact-row {
+  display: flex;
+  align-items: flex-end; 
+  width: 100%;
+  color: white;
+  font-family: 'Thabit', 'Courier New', monospace;
+  font-size: 30px;
+}
+
+.contact-label {
+  white-space: nowrap;
+}
+
+/* Linea punteada */
+.contact-dots {
+  flex-grow: 1; /* Ocupa todo el espacio que pueda */
+  margin: 0 20px;
+  border-bottom: 5px dotted rgb(255, 255, 255);
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+.contact-value {
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/*-------------------------------------*/
+
+/* --- VERSIÓN CELULAR --- */
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding-top: 50px;
+  }
+  
+  /* Ajustar pestaña */
+  .folder-tab { width: 280px; height: 70px; }
+  .folder-text { font-size: 24px; top: 25px; }
+
+  /* Ajustar lista */
+  .contact-info-container {
+    padding: 0 20px;
+    gap: 30px;
+  }
+  
+  .contact-row {
+    font-size: 16px; /* Letra pequeña para que quepa el correo */
+    flex-direction: column; /* Si es muy largo, que se apile */
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  /* En celular ocultamos los puntos si apilamos el texto */
+  .contact-dots {
+    display: none; 
+  }
+}

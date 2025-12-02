@@ -1,0 +1,55 @@
+/* src/Navbar.css */
+
+.navbar-container {
+  display: flex;
+  justify-content: flex-end; /* Manda todo a la derecha */
+  align-items: center;
+  padding: 30px 40px; 
+  background-color: #000000;
+  border-bottom: 2px solid white; /* La línea blanca separadora */
+  font-family: 'Thabit', 'Courier New', monospace;
+  color: white;
+}
+
+.navbar-links {
+  list-style: none; /* Quita los puntitos de la lista */
+  display: flex;    /* Pone los items uno al lado del otro */
+  gap: 60px;        /* Espacio entre palabras */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  text-decoration: none; /* Quita el subrayado feo de los links */
+  color: white;
+  font-size: 40px;  /* Tamaño grande */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Al pasar el mouse se pone de un gris muy claro */
+.navbar-links a:hover {
+  color: #cccccc; 
+}
+
+/*-------------------------------------*/
+
+/* --- VERSIÓN CELULAR --- */
+
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column; /* Pone el menú debajo en vez de a la derecha */
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .navbar-links {
+    gap: 20px; /* Menos espacio entre palabras */
+    flex-wrap: wrap; /* Si no caben, bajan al siguiente renglón */
+    justify-content: center;
+  }
+
+  .navbar-links a {
+    font-size: 18px; /* Letra mucho más pequeña para que quepa */
+  }
+}

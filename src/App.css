@@ -1,0 +1,46 @@
+/* src/App.css */
+
+/* --- ESTILO DE LA NOTA FLOTANTE (INTRO) --- */
+.intro-note-styled {
+  position: fixed; /* Se queda pegada a la pantalla aunque bajes */
+  top: 50%;
+  left: 50%;
+  z-index: 9999; /* Para que esté ENCIMA de todo lo demás */
+  cursor: pointer; /* Manita para indicar clic */
+
+  /* CENTRAR Y GIRAR: */
+  /* translate centra exacto, rotate le da el toque "desordenado" realista */
+  transform: translate(-50%, -50%) rotate(-2deg);
+
+  /* TAMAÑO DE LA NOTA */
+  max-width: 40vw; /* Ocupa el 40% del ancho de pantalla */
+  height: auto;
+
+  /* SOMBRA REALISTA: Para que parezca que es un objeto con profundidad colocado */
+  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.5);
+
+  /* Animación de entrada */
+  animation: floatIn 0.7s ease-out;
+}
+
+/* Animación para que entre suavemente desde arriba */
+@keyframes floatIn {
+  from { 
+    opacity: 0; 
+    transform: translate(-50%, -60%) rotate(0deg); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) rotate(-2deg); 
+  }
+}
+
+/*-------------------------------------*/
+
+/* --- VERSIÓN CELULAR --- */
+
+@media (max-width: 768px) {
+  .intro-note-styled {
+    max-width: 80vw; /* En celular ocupa casi todo el ancho (80%) */
+  }
+}
